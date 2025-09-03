@@ -1,6 +1,7 @@
 "use strict";
 
 const scores = [];
+let highScore = 0;
 
 // use do-while loop to get the scores from the user
 let score = 0;
@@ -22,6 +23,9 @@ if (scores.length > 0) {
     let total = 0;
     for (let i in scores) {
         total = total + scores[i];
+				if(scores[i] > highScore){
+					highScore = scores[i];
+			}
         document.write(`<p>Score ${parseInt(i) + 1}: ${scores[i]}</p>`);
     }
 
@@ -29,3 +33,11 @@ if (scores.length > 0) {
     const average = parseInt(total/scores.length);
     document.write(`<p>Average score is ${average}</p>`);
 }
+
+//for(let score of scores){
+//	if (score > highScore) {
+//		highScore = score;
+//	}
+//}
+  document.write(`<p>Highest score is ${highScore}</p>`);
+
